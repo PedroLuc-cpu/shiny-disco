@@ -1,1 +1,1 @@
-export {}
+export * from "./menulateral/MenuLateral"

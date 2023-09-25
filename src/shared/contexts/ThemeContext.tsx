@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { ReactNode, createContext, useCallback, useContext, useMemo, useState } from "react";
 import { ThemeProvider } from '@emotion/react'
 import { LightTheme, DarkTheme } from '../../shared/themes'
