@@ -2,18 +2,16 @@ import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon,
 import { ReactNode } from "react"
 import { useDrawerContext } from '../../contexts';
 import { useNavigate } from 'react-router-dom';
-import { TramSharp } from "@mui/icons-material";
-import { OverridableTypeMap } from "@mui/material/OverridableComponent";
-
+import HomeIcon from '@mui/icons-material/Home';
 
 
 interface childrenType{
     children: ReactNode
 }
 
-interface IListItemLinkProps<TypeMap extends OverridableTypeMap>{
+interface IListItemLinkProps{
     label: string
-    icon: string | TypeMap
+    icon: ReactNode 
     to: string
     onClick: (() => void) | undefined
 }
@@ -58,7 +56,7 @@ export const MenuLateral = ({ children } : childrenType) => {
                 <Box flex={1}>
                     <List component={"nav"}>
                         <ListItemLink 
-                        icon={<TramSharp/>}
+                        icon={<HomeIcon/>}
                         to='/pagina-inicial'
                         label='Página inicial'
                         onClick={smDown ?  toggleDrawerOpen : undefined}
