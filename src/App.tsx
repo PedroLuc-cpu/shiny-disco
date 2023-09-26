@@ -5,8 +5,10 @@ import { ThemeContextProvider } from './shared/contexts/ThemeContext'
 function App() {
   return (
     <ThemeContextProvider>
-      <MenuLateral/>
-      <AppRoute/>
+      <MenuLateral>
+        <AppRoute/>
+      </MenuLateral>
+      
     </ThemeContextProvider>
   )
 }
