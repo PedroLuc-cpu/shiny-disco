@@ -2,16 +2,19 @@ import { AppRoute } from './routes'
 import { MenuLateral } from './shared/components'
 import { DrawerContextProvider } from './shared/contexts'
 import { ThemeContextProvider } from './shared/contexts/ThemeContext'
+import { BrowserRouter as Router} from "react-router-dom"
 
 function App() {
   return (
-    <ThemeContextProvider>
-      <DrawerContextProvider>
-        <MenuLateral>
-          <AppRoute/>
-        </MenuLateral>
-      </DrawerContextProvider>      
-    </ThemeContextProvider>
+    <Router>
+        <ThemeContextProvider>
+          <DrawerContextProvider>
+            <MenuLateral>
+              <AppRoute/>
+            </MenuLateral>
+            </DrawerContextProvider>      
+        </ThemeContextProvider>
+    </Router>
   )
 }
 

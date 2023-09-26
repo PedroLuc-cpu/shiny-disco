@@ -1,10 +1,42 @@
-import HomeIcon from '@mui/icons-material/Home';import { Avatar, Box, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material"
+import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material"
 import { ReactNode } from "react"
 import { useDrawerContext } from '../../contexts';
+import { useNavigate } from 'react-router-dom';
+import { TramSharp } from "@mui/icons-material";
+import { OverridableTypeMap } from "@mui/material/OverridableComponent";
+
+
 
 interface childrenType{
     children: ReactNode
 }
+
+interface IListItemLinkProps<TypeMap extends OverridableTypeMap>{
+    label: string
+    icon: string | TypeMap
+    to: string
+    onClick: (() => void) | undefined
+}
+
+const ListItemLink = ({label, icon, onClick, to}:IListItemLinkProps) =>{
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(to);
+        onClick?.()
+    }
+
+    return(
+        <ListItemButton onClick={handleClick}>
+            <ListItemIcon>
+                <Icon>{icon}</Icon>
+            </ListItemIcon>
+            <ListItemText primary={label}/>
+        </ListItemButton>   
+    )
+}
+
 
 export const MenuLateral = ({ children } : childrenType) => {
     const theme = useTheme();
@@ -25,12 +57,12 @@ export const MenuLateral = ({ children } : childrenType) => {
 
                 <Box flex={1}>
                     <List component={"nav"}>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <HomeIcon/>
-                            </ListItemIcon>
-                            <ListItemText primary="Página Inicial"/>
-                        </ListItemButton>
+                        <ListItemLink 
+                        icon={<TramSharp/>}
+                        to='/pagina-inicial'
+                        label='Página inicial'
+                        onClick={smDown ?  toggleDrawerOpen : undefined}
+                        />
                     </List>
                 </Box>
             </Box>
