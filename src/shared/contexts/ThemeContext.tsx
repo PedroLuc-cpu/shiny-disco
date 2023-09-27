@@ -1,18 +1,15 @@
 /* eslint-disable react-refresh/only-export-components */
-import { ReactNode, createContext, useCallback, useContext, useMemo, useState } from "react";
+import {createContext, useCallback, useContext, useMemo, useState } from "react";
 import { ThemeProvider } from '@emotion/react'
 import { LightTheme, DarkTheme } from '../../shared/themes'
 import { Box } from "@mui/material";
+import { TypeChildrenProps } from "../model/TypeChildrenProps";
 
 
 
 interface IThemeContextType {
   themeName: 'light' | 'dark';
   toggleTheme: () => void;
-}
-
-interface IThemeProviderProps {
-  children: ReactNode
 }
 
 
@@ -22,7 +19,7 @@ export const useThemeContext = () => {
   return useContext(ThemeContext)
 }
 
-export const ThemeContextProvider = ({ children }: IThemeProviderProps) => {
+export const ThemeContextProvider = ({ children }: TypeChildrenProps) => {
   const [themeName, setthemeName] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = useCallback(() => {

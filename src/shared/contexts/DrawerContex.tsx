@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 import { ReactNode, createContext, useCallback, useContext, useState } from "react";
+import { TypeChildrenProps } from "../model/TypeChildrenProps";
 
 
 interface IDrawerOptions{
@@ -14,17 +15,13 @@ interface IDrawerContextType {
   setDrawerOptions: (drawerOptions: IDrawerOptions[]) => void;
 }
 
-interface IDrawerProviderProps {
-  children: ReactNode
-}
-
 const DrawerContext = createContext({} as IDrawerContextType)
 
 export const useDrawerContext = () => {
   return useContext(DrawerContext)
 }
 
-export const DrawerContextProvider = ({ children }: IDrawerProviderProps) => {
+export const DrawerContextProvider = ({ children }: TypeChildrenProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
   const [drawerOptions, setDrawerOptions] = useState<IDrawerOptions[]>([]);
 

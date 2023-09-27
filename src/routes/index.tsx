@@ -1,14 +1,14 @@
 import {Routes, Route, Navigate } from "react-router-dom";
-import {Button} from "@mui/material"
 import {useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
 
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import HandymanIcon from '@mui/icons-material/Handyman';
+import { Dashboard } from "../pages";
 
 export function AppRoute(){
-    const { toggleDrawerOpen, setDrawerOptions  } = useDrawerContext()
+    const { setDrawerOptions} = useDrawerContext()
 
     useEffect(() =>{
         setDrawerOptions([
@@ -30,11 +30,11 @@ export function AppRoute(){
                 path:"/configuracao"
             }
         ])
-    }, [])
+    },[setDrawerOptions])
 
     return(
             <Routes>
-                <Route path="/app" element={<Button variant="contained" color="primary" onClick={toggleDrawerOpen}>Modo Escuro</Button>}/>
+                <Route path="/app" element={<Dashboard />}/>
                 <Route path="*" element={<Navigate to={"/app"}/>}/>
             </Routes>
     )
