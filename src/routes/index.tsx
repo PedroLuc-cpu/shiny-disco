@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import HandymanIcon from '@mui/icons-material/Handyman';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { Dashboard } from "../pages";
 
 export function AppRoute(){
@@ -28,7 +29,12 @@ export function AppRoute(){
                 label:"Configuração",
                 icon:<HandymanIcon/>,
                 path:"/configuracao"
-            }
+            },
+                        {
+                label:"Temporizador",
+                icon:<AccessTimeIcon/>,
+                path:"/temporizador"
+            },
         ])
     },[setDrawerOptions])
 

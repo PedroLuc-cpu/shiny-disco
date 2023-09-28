@@ -1,7 +1,9 @@
 import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from "@mui/material"
 import { ReactNode } from "react"
-import { useDrawerContext } from '../../contexts';
+import { useDrawerContext, useThemeContext } from '../../contexts';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
+
+import DarkModeIcon from '@mui/icons-material/DarkMode';
 
 interface childrenType{
     children: ReactNode
@@ -42,6 +44,7 @@ export const MenuLateral = ({ children } : childrenType) => {
     const smDown = useMediaQuery(theme.breakpoints.down("sm"));
 
     const {isDrawerOpen, toggleDrawerOpen, drawerOptions} = useDrawerContext();
+    const {toggleTheme} = useThemeContext()
 
     return(
         <>
@@ -66,6 +69,15 @@ export const MenuLateral = ({ children } : childrenType) => {
                         />
                         ))}
                     </List>
+                </Box>
+
+                <Box>
+                    <ListItemButton onClick={toggleTheme}>
+                        <ListItemIcon>
+                            <DarkModeIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Tema"/>
+                    </ListItemButton>
                 </Box>
             </Box>
          </Drawer>
