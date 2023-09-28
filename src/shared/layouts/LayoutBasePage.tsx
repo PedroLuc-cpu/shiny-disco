@@ -5,30 +5,42 @@ import { useDrawerContext } from "../contexts";
 
 
 
-export const LayoutBasePage = ({children, title}: TypeChildrenProps ) => {
+export const LayoutBasePage = ({children, title, toolbar}: TypeChildrenProps ) => {
   const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+
   const theme = useTheme()
   const {toggleDrawerOpen} = useDrawerContext()
   
  return(
   <Box height={"100%"} display={"flex"} flexDirection={"column"} gap={1}>
-    <Box padding={1} height={theme.spacing(12)} display={"flex"} alignItems={"center"} gap={1}>
+    <Box padding={1} display={"flex"} alignItems={"center"} gap={1}  height={theme.spacing(smDown ? 6 : mdDown ? 8 : 12)}>
       {smDown && (
       <IconButton onClick={toggleDrawerOpen}>
         <MenuIcon/>
       </IconButton>
       )}
 
-      <Typography variant="h5">
+      <Typography 
+      variant={smDown ? "h5" : mdDown ? "h4" : "h3"} 
+      overflow={"hidden"}
+      whiteSpace={"nowrap"}
+      textOverflow={"ellipsis"}
+      >
         {title}
       </Typography>
-
     </Box>
+
+    {toolbar && (
+    <Box>
+      {toolbar}
+    </Box>
+    )}
     
     <Box>
       Barra de ferramentas
     </Box>
-    <Box>
+    <Box flex={1} overflow={"auto"}>
       {children}
     </Box>
   </Box>
