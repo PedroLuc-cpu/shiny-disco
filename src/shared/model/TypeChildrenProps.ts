@@ -7,5 +7,5 @@ interface global para realizar as tipagens dos childrens
 * export const DrawerContextProvider = ({ children }: TypeChildrenProps) => {}
 */
 export interface TypeChildrenProps extends LayoutBasePageProps {
- children: ReactNode
+ children: ReactNode | undefined
 }
