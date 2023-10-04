@@ -4,6 +4,6 @@ import { ReactNode } from "react"
 
 
 export interface LayoutBasePageProps{
- title: string
+ title?: string
  toolbar? : ReactNode
 }

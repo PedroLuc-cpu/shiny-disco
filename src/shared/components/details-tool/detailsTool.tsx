@@ -5,63 +5,63 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 export const  DetailsTool = () =>{
- 
- const theme = useTheme()
- 
- return (
-  <Box 
-    height={theme.spacing(5)}
-    marginX={1}
-    padding={1}
-    paddingX={2}
-    display={"flex"} 
-    gap={1} 
-    alignItems={"center"} 
-    component={Paper}
-  >
 
-  <Button 
-      variant="contained"
-      type="submit"
-      disableElevation
-      startIcon={<SaveIcon/>}
-      >Salvar
-  </Button>
+    const theme = useTheme()
 
-  <Button 
-      variant="outlined"
-      type="submit"
-      disableElevation
-      startIcon={<SaveIcon/>}
-      >Salvar e voltar
-  </Button>
+    return (
+    <Box 
+        height={theme.spacing(5)}
+        marginX={1}
+        padding={1}
+        paddingX={2}
+        display={"flex"} 
+        gap={1} 
+        alignItems={"center"} 
+        component={Paper}
+    >
 
-      <Button 
-      variant="outlined"
-      type="submit"
-      disableElevation
-      startIcon={<DeleteIcon/>}
-      >Apagar
-  </Button>
+    <Button 
+        variant="contained"
+        type="submit"
+        disableElevation
+        startIcon={<SaveIcon/>}
+    >   Salvar
+    </Button>
 
-  <Button 
-      variant="outlined"
-      type="submit"
-      disableElevation
-      startIcon={<AddIcon/>}
-      >NOVO
-  </Button>
+    <Button 
+        variant="outlined"
+        type="submit"
+        disableElevation
+        startIcon={<SaveIcon/>}
+        >Salvar e voltar
+    </Button>
 
-  <Divider variant="middle" orientation="vertical"/>
+    <Button 
+        variant="outlined"
+        type="submit"
+        disableElevation
+        startIcon={<DeleteIcon/>}
+    >Apagar
+    </Button>
 
-  <Button 
-      variant="outlined"
-      type="submit"
-      disableElevation
-      startIcon={<ArrowBackIcon/>}
-      >Voltar
-  </Button>
+    <Button 
+        variant="outlined"
+        type="submit"
+        disableElevation
+        startIcon={<AddIcon/>}
+    >   NOVO
+    </Button>
 
-  </Box>
+    <Divider variant="middle" orientation="vertical"/>
+
+    <Button 
+        variant="outlined"
+        type="submit"
+        disableElevation
+        startIcon={<ArrowBackIcon/>}
+        >Voltar
+    </Button>
+
+    </Box>
 )
 }

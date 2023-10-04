@@ -4,12 +4,12 @@ import { LayoutBasePage } from "../../shared/layouts"
 
 
 export const Dashboard = () => {
- return(
+  return(
   <LayoutBasePage 
     title="Página inicial"
     toolbar={(<DetailsTool/>)}
   >
     Testando...
   </LayoutBasePage>
- )
+  )
 }
