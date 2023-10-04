@@ -1,4 +1,4 @@
-import { ToolListing } from "../../shared/components"
+import { DetailsTool } from "../../shared/components/details-tool/detailsTool"
 import { LayoutBasePage } from "../../shared/layouts"
 
 
@@ -7,7 +7,7 @@ export const Dashboard = () => {
  return(
   <LayoutBasePage 
     title="Página inicial"
-    toolbar={<ToolListing showInputSearch />}
+    toolbar={(<DetailsTool/>)}
   >
     Testando...
   </LayoutBasePage>

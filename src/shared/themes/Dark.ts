@@ -5,8 +5,8 @@ export const DarkTheme = createTheme({
  palette: {
   mode:"dark",
   primary: {
-   main: '#A979FF',
-   dark: '#A979FF',
+   main: "#508BED",
+   dark: "#508BED",
    light: purple[500],
    contrastText: '#ffff',
   },
