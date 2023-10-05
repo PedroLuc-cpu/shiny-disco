@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Paper, Skeleton, useTheme } from "@mui/material"
+import { Box, Button, Divider, Paper, Skeleton, Theme, Typography, useMediaQuery, useTheme } from "@mui/material"
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -53,7 +53,8 @@ export const  DetailsTool = ({
 
 
 }: IDetailsTool) =>{
-
+    const smDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+    const mdDown = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
     const theme = useTheme()
 
     return (
@@ -69,30 +70,36 @@ export const  DetailsTool = ({
     >
 
     { showButtonSave && !showButtonSaveLoading && (
-        <Button 
+    <Button 
         variant="contained"
         type="submit"
         disableElevation
         startIcon={<SaveIcon/>}
         onClick={onClickSaveButton}
-    >   Salvar
+    >   
+    <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
+        Salvar
+    </Typography>
     </Button>
     )}
 
     { showButtonSaveLoading && (<Skeleton width={110} height={60} />)}
 
-    {showButtonSaveAndBack &&  !showButtonSaveAndBackLoading &&(
+    {showButtonSaveAndBack &&  !showButtonSaveAndBackLoading && !smDown && !mdDown &&(
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<SaveIcon/>}
         onClick={onClickSaveAndBackButton}
-        >Salvar e voltar
+        >
+    <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
+        Salvar e voltar
+    </Typography>    
     </Button>
     )}
 
-    { showButtonSaveAndBackLoading && (<Skeleton width={110} height={60} />)}
+    { showButtonSaveAndBackLoading && !smDown &&  mdDown && (<Skeleton width={110} height={60} />)}
 
     { showButtonDelete && !showButtonSaveAndBackLoading && (
     <Button 
@@ -101,26 +108,34 @@ export const  DetailsTool = ({
         disableElevation
         startIcon={<DeleteIcon/>}
         onClick={onClickDeleteButton}
-    >Apagar
+    >
+    <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
+        Apagar
+    </Typography>
     </Button>
     )}
 
     { showButtonDeleteLoading && (<Skeleton width={110} height={60} />)}
 
-    {showButtonNew && !showButtonNewLoading && (
+    {showButtonNew && !showButtonNewLoading && !smDown && (
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<AddIcon/>}
         onClick={onClickNewButton}
-    >{textButtonNew}
+    >
+    <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
+        {textButtonNew}
+    </Typography>    
     </Button>
     )}
 
-    { showButtonNewLoading && (<Skeleton width={110} height={60} />)}
+    { showButtonNewLoading && !smDown && (<Skeleton width={110} height={60} />)}
 
-    <Divider variant="middle" orientation="vertical"/>
+    {(showButtonBack && (showButtonNew || showButtonDelete || showButtonSaveAndBack) &&
+        <Divider variant="middle" orientation="vertical"/>
+    )}
 
     { showButtonBack &&  !showButtonBackLoading && (
     <Button 
@@ -129,7 +144,10 @@ export const  DetailsTool = ({
         disableElevation
         startIcon={<ArrowBackIcon/>}
         onClick={onClickBackButton}
-        >Voltar
+    >
+    <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
+        Voltar
+    </Typography>
     </Button>
     )}
 
