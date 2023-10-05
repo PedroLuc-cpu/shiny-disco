@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Paper, useTheme } from "@mui/material"
+import { Box, Button, Divider, Paper, Skeleton, useTheme } from "@mui/material"
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,6 +11,14 @@ interface IDetailsTool {
     showButtonDelete?: boolean
     showButtonSave?: boolean
     showButtonSaveAndBack?: boolean
+
+    // Conditional Loading
+
+    showButtonNewLoading?: boolean
+    showButtonBackLoading?: boolean
+    showButtonDeleteLoading?: boolean
+    showButtonSaveLoading?: boolean
+    showButtonSaveAndBackLoading?: boolean
 
     //Events
 
@@ -29,6 +37,13 @@ export const  DetailsTool = ({
     showButtonDelete = true,
     showButtonSave = true,
     showButtonSaveAndBack = false,
+
+    showButtonNewLoading = false,
+    showButtonBackLoading = false,
+    showButtonDeleteLoading = false,
+    showButtonSaveLoading = false,
+    showButtonSaveAndBackLoading = false,
+
 
     onClickNewButton,
     onClickBackButton,
@@ -53,7 +68,7 @@ export const  DetailsTool = ({
         component={Paper}
     >
 
-    { showButtonSave && (
+    { showButtonSave && !showButtonSaveLoading && (
         <Button 
         variant="contained"
         type="submit"
@@ -64,7 +79,9 @@ export const  DetailsTool = ({
     </Button>
     )}
 
-    {showButtonSaveAndBack && (
+    { showButtonSaveLoading && (<Skeleton width={110} height={60} />)}
+
+    {showButtonSaveAndBack &&  !showButtonSaveAndBackLoading &&(
     <Button 
         variant="outlined"
         type="submit"
@@ -75,7 +92,9 @@ export const  DetailsTool = ({
     </Button>
     )}
 
-    { showButtonDelete && (
+    { showButtonSaveAndBackLoading && (<Skeleton width={110} height={60} />)}
+
+    { showButtonDelete && !showButtonSaveAndBackLoading && (
     <Button 
         variant="outlined"
         type="submit"
@@ -86,7 +105,9 @@ export const  DetailsTool = ({
     </Button>
     )}
 
-    {showButtonNew && (
+    { showButtonDeleteLoading && (<Skeleton width={110} height={60} />)}
+
+    {showButtonNew && !showButtonNewLoading && (
     <Button 
         variant="outlined"
         type="submit"
@@ -97,9 +118,11 @@ export const  DetailsTool = ({
     </Button>
     )}
 
+    { showButtonNewLoading && (<Skeleton width={110} height={60} />)}
+
     <Divider variant="middle" orientation="vertical"/>
 
-    { showButtonBack && (
+    { showButtonBack &&  !showButtonBackLoading && (
     <Button 
         variant="outlined"
         type="submit"
@@ -110,6 +133,7 @@ export const  DetailsTool = ({
     </Button>
     )}
 
+    { showButtonBackLoading && (<Skeleton width={110} height={60} />)}
     </Box>
 )
 }

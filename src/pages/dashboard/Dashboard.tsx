@@ -7,7 +7,7 @@ export const Dashboard = () => {
   return(
   <LayoutBasePage 
     title="Página inicial"
-    toolbar={(<DetailsTool/>)}
+    toolbar={(<DetailsTool showButtonSaveAndBack showButtonSaveAndBackLoading/>)}
   >
     Testando...
   </LayoutBasePage>
