@@ -4,7 +4,40 @@ import SaveIcon from '@mui/icons-material/Save';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-export const  DetailsTool = () =>{
+interface IDetailsTool {
+    textButtonNew?: string
+    showButtonNew?: boolean
+    showButtonBack?: boolean
+    showButtonDelete?: boolean
+    showButtonSave?: boolean
+    showButtonSaveAndBack?: boolean
+
+    //Events
+
+    onClickNewButton?: () => void
+    onClickBackButton?: () => void
+    onClickDeleteButton?: () => void
+    onClickSaveButton?: () => void
+    onClickSaveAndBackButton?: () => void
+}
+
+
+export const  DetailsTool = ({
+    textButtonNew =  "Novo",
+    showButtonNew = true,
+    showButtonBack = true,
+    showButtonDelete = true,
+    showButtonSave = true,
+    showButtonSaveAndBack = false,
+
+    onClickNewButton,
+    onClickBackButton,
+    onClickDeleteButton,
+    onClickSaveAndBackButton,
+    onClickSaveButton
+
+
+}: IDetailsTool) =>{
 
     const theme = useTheme()
 
@@ -20,47 +53,62 @@ export const  DetailsTool = () =>{
         component={Paper}
     >
 
-    <Button 
+    { showButtonSave && (
+        <Button 
         variant="contained"
         type="submit"
         disableElevation
         startIcon={<SaveIcon/>}
+        onClick={onClickSaveButton}
     >   Salvar
     </Button>
+    )}
 
+    {showButtonSaveAndBack && (
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<SaveIcon/>}
+        onClick={onClickSaveAndBackButton}
         >Salvar e voltar
     </Button>
+    )}
 
+    { showButtonDelete && (
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<DeleteIcon/>}
+        onClick={onClickDeleteButton}
     >Apagar
     </Button>
+    )}
 
+    {showButtonNew && (
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<AddIcon/>}
-    >   NOVO
+        onClick={onClickNewButton}
+    >{textButtonNew}
     </Button>
+    )}
 
     <Divider variant="middle" orientation="vertical"/>
 
+    { showButtonBack && (
     <Button 
         variant="outlined"
         type="submit"
         disableElevation
         startIcon={<ArrowBackIcon/>}
+        onClick={onClickBackButton}
         >Voltar
     </Button>
+    )}
 
     </Box>
 )
