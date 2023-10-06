@@ -1,10 +1,22 @@
 {
- "pessoa":[
-  {
-  "id": 1,  
-  "nome": "Pedro Lucas",
-  "sobrenome":" Santos dos Santos",
-  "idade": 12
-  }
- ]
+  "pessoas": [
+    {
+      "id": 1,
+      "nome": "Pedro Lucas",
+      "sobrenome": " Santos dos Santos",
+      "idade": 12
+    },
+    {
+      "id": 2,
+      "nome": "Pedro",
+      "sobrenome": "dos Santos",
+      "idade": 12
+    },
+    {
+      "id": 3,
+      "nome": "Cliente cadastrado 1",
+      "sobrenome": "cadastrado cadastrado cadastrado",
+      "idade": 123
+    }
+  ]
 }
