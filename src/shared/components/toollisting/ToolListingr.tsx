@@ -3,6 +3,9 @@ import { ReactElement } from "react"
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 
+import { Environments } from "../../environments/index"
+
+
 interface IToolListing {
   searchText?: string;
   showInputSearch?: boolean;
@@ -42,6 +45,7 @@ export const ToolListing = (
     size="small"
     value={searchText}
     onChange={(e) => whenChangingSearchText?.(e.target.value)}
+    placeholder={Environments.INPUT_SEACH}
     InputProps={{startAdornment:(
     <InputAdornment position="start">
       <SearchIcon/>

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { erroInterceptor, responseInterceptors } from "../interceptors";
-
+import { Environments } from "../../../environments/index"
 const Api = axios.create({
- baseURL:"http://localhost:3333"
+ baseURL: Environments.URL_BASE 
 })
 
 Api.interceptors.response.use(
