@@ -37,9 +37,9 @@ export const LayoutBasePage = ({children, title, toolbar}: TypeChildrenProps ) =
     </Box>
     )}
     
-    <Box>
+    {/* <Box>
       Barra de ferramentas
-    </Box>
+    </Box> */}
     <Box flex={1} overflow={"auto"}>
       {children}
     </Box>

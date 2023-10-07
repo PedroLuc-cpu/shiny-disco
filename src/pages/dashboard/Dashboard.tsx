@@ -9,7 +9,6 @@ export const Dashboard = () => {
     title="Página inicial"
     toolbar={(<DetailsTool showButtonSaveAndBack showButtonSaveAndBackLoading/>)}
   >
-    Testando...
   </LayoutBasePage>
   )
 }
