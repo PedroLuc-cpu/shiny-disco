@@ -1,5 +1,5 @@
 import { Box, Button, InputAdornment, Paper, TextField, useTheme } from "@mui/material"
-import { ReactElement } from "react"
+import { ReactElement, } from "react"
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 
@@ -67,5 +67,5 @@ export const ToolListing = (
   </Box>
   )}
   </Box>
- )
+)
 }

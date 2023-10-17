@@ -1,18 +1,14 @@
-import { useSearchParams } from "react-router-dom"
-
 import { ToolListing } from "../../shared/components"
 import { LayoutBasePage } from "../../shared/layouts"
-import { useMemo } from "react"
+import { useState } from "react"
 
 
 
 export const ListingCity = () => {
 
-    const [searchParams, setSearchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useState("")
+    console.log(searchParams)
 
-    const buscar = useMemo(()=>{
-        return searchParams.get("busca") || "";
-    }, [searchParams])
 
     return(
         <LayoutBasePage 
@@ -22,8 +18,8 @@ export const ListingCity = () => {
         <ToolListing
         textButtonNew="Nova"
         showInputSearch
-        searchText={buscar}
-        whenChangingSearchText={texto => setSearchParams({buscar: texto}, {replace: true})}
+        searchText={searchParams}
+        whenChangingSearchText={texto => setSearchParams(texto)}
         />}
         >
         </LayoutBasePage>
