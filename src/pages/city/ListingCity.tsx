@@ -6,10 +6,9 @@ import { useState } from "react"
 
 export const ListingCity = () => {
 
+    //1 parent ac48d80 commit 41069db
     const [searchParams, setSearchParams] = useState("")
-    console.log(searchParams)
-
-
+    
     return(
         <LayoutBasePage 
         title="Listagem de cidades"
