@@ -3,12 +3,12 @@ import {useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
 
 
-import { Dashboard, ListingCity } from "../pages";
+import { Dashboard, ListingPerson } from "../pages";
 
 
 //icons
 import HomeIcon from '@mui/icons-material/Home';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
+import PersonIcon from '@mui/icons-material/Person';
 
 export function AppRoute(){
     const { setDrawerOptions} = useDrawerContext()
@@ -21,9 +21,9 @@ export function AppRoute(){
                 path:"/pagina-inicial"
             },
             {
-                label:"cidades",
-                icon:<LocationCityIcon/>,
-                path:"/cidades"
+                label:"Pessoas",
+                icon:<PersonIcon/>,
+                path:"/pessoas"
             }
         ])
     },[setDrawerOptions])
@@ -31,7 +31,7 @@ export function AppRoute(){
     return(
             <Routes>
                 <Route path="/app" element={<Dashboard />}/>
-                <Route path="/cidades" element={<ListingCity/>}/>
+                <Route path="/pessoas" element={<ListingPerson/>}/>
                 {/* <Route path="/cidades/detalhe/:id" element={<ListingCity/>}/> */}
                 <Route path="*" element={<Navigate to={"/app"}/>}/>
             </Routes>

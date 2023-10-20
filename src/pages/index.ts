@@ -1,2 +1,2 @@
 export * from "./dashboard/Dashboard"
-export * from "./city/ListingCity"
+export * from "./Persons/ListingPerson"

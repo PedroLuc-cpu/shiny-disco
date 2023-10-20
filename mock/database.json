@@ -2,21 +2,23 @@
   "pessoas": [
     {
       "id": 1,
-      "nome": "Pedro Lucas",
-      "sobrenome": " Santos dos Santos",
-      "idade": 12
+      "nomeCompleto": "Lucas",
+      "email": " SantosdosSantos@gmail.com",
+      "cidadeId":"jatai"
     },
     {
       "id": 2,
-      "nome": "Pedro",
-      "sobrenome": "dos Santos",
-      "idade": 12
+      "nomeCompleto": "Pedro",
+      "email": "dosSantos@gmail.com",
+      "cidadeId":"jatai"
+
     },
     {
       "id": 3,
-      "nome": "Cliente cadastrado 1",
-      "sobrenome": "cadastrado cadastrado cadastrado",
-      "idade": 123
+      "nomeCompleto": "Clientecadastrado1",
+      "email": "cadastrado@gmail.com",
+      "cidadeId":"jatai"
+
     }
   ]
 }
