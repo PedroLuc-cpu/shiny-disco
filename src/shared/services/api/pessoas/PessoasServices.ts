@@ -1,7 +1,7 @@
 import { Environments } from "../../../environments";
 import { Api } from "../axios-config";
 
-interface IListagemPessoa {
+export interface IListagemPessoa {
     id: number;
     nomeCompleto: string;
     email: string;
@@ -9,7 +9,7 @@ interface IListagemPessoa {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-interface IDetalhePessoa {
+export interface IDetalhePessoa {
     id: number;
     nomeCompleto: string;
     email: string;
