@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import {createContext, useCallback, useContext, useMemo, useState } from "react";
 import { ThemeProvider } from '@emotion/react'
-import { LightTheme, DarkTheme } from '../../shared/themes'
+import { LightTheme, DarkTheme } from '../themes'
 import { Box } from "@mui/material";
 import { TypeChildrenProps } from "../model/TypeChildrenProps";
 

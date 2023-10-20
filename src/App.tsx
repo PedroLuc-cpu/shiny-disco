@@ -1,7 +1,7 @@
 import { AppRoute } from './routes'
 import { MenuLateral } from './shared/components'
 import { DrawerContextProvider } from './shared/contexts'
-import { ThemeContextProvider } from './shared/contexts/ThemeContext'
+import { ThemeContextProvider } from './shared/contexts/AppThemeContext'
 import { BrowserRouter as Router} from "react-router-dom"
 
 function App() {
