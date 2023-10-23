@@ -4,9 +4,12 @@ import { useEffect, useMemo, useState } from "react"
 import { IListagemPessoa, PessoasService } from "../../shared/services/api/pessoas/PessoasServices"
 import { useSearchParams } from "react-router-dom"
 import { useDebounce } from "../../shared/hook"
-import { LinearProgress, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material"
+import { IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material"
 import { Environments } from "../../shared/environments"
 
+
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 export const ListingPerson = () => {
@@ -48,6 +51,26 @@ export const ListingPerson = () => {
     });
 
     }, [busca, debounce, pagina])
+
+    const handleDelete = (id: number) => {
+        if(confirm('Are you sure you want to delete')){
+            PessoasService.deleteById(id)
+              .then((result) => {
+                    if(result instanceof Error){
+                        alert(result.message);
+                    }else{
+                        setRows(oldRows => {
+                            return [
+                                
+                              ...oldRows.filter(row => row.id!== id)
+                            ]
+                        })
+                        alert("Deletado com sucesso!")
+                        window.location.reload()
+                    }
+                });
+        }
+    }
     
     return(
         <LayoutBasePage 
@@ -75,7 +98,15 @@ export const ListingPerson = () => {
                 (
                 rows.map(row => (
                     <TableRow key={row.id}>
-                        <TableCell>Ações</TableCell>
+                        <TableCell>
+                            <IconButton size="small">
+                                <EditIcon/>
+                            </IconButton>
+
+                            <IconButton size="small" onClick={() => handleDelete(row.id)}>
+                                <DeleteIcon/>
+                            </IconButton>
+                        </TableCell>
                         <TableCell>{row.nomeCompleto}</TableCell>
                         <TableCell>{row.email}</TableCell>
                     </TableRow>
