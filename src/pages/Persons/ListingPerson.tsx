@@ -2,7 +2,7 @@ import { ToolListing } from "../../shared/components"
 import { LayoutBasePage } from "../../shared/layouts"
 import { useEffect, useMemo, useState } from "react"
 import { IListagemPessoa, PessoasService } from "../../shared/services/api/pessoas/PessoasServices"
-import { useSearchParams } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import { useDebounce } from "../../shared/hook"
 import { IconButton, LinearProgress, Pagination, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material"
 import { Environments } from "../../shared/environments"
@@ -16,6 +16,7 @@ export const ListingPerson = () => {
 
     const  [searchParams, setSearchParams] = useSearchParams();
     const  {debounce} = useDebounce()
+    const  navigate = useNavigate();
 
     const [rows, setRows] = useState<IListagemPessoa[]>([])
     const [isLoading, setIsLoading] = useState(true)
@@ -55,14 +56,14 @@ export const ListingPerson = () => {
     const handleDelete = (id: number) => {
         if(confirm('Are you sure you want to delete')){
             PessoasService.deleteById(id)
-              .then((result) => {
+                .then((result) => {
                     if(result instanceof Error){
                         alert(result.message);
                     }else{
                         setRows(oldRows => {
                             return [
                                 
-                              ...oldRows.filter(row => row.id!== id)
+                                ...oldRows.filter(row => row.id!== id)
                             ]
                         })
                         alert("Deletado com sucesso!")
@@ -99,7 +100,7 @@ export const ListingPerson = () => {
                 rows.map(row => (
                     <TableRow key={row.id}>
                         <TableCell>
-                            <IconButton size="small">
+                            <IconButton size="small" onClick={() => navigate(`/pessoas/detalhe/${row.id}`)}>
                                 <EditIcon/>
                             </IconButton>
 

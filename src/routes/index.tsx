@@ -32,7 +32,7 @@ export function AppRoute(){
             <Routes>
                 <Route path="/app" element={<Dashboard />}/>
                 <Route path="/pessoas" element={<ListingPerson/>}/>
-                {/* <Route path="/cidades/detalhe/:id" element={<ListingCity/>}/> */}
+                <Route path="/pessoas/detalhe/:id" element={<p>Detalhes</p>}/>
                 <Route path="*" element={<Navigate to={"/app"}/>}/>
             </Routes>
     )
