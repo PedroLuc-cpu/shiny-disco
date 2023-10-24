@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasServices";
 import { Form } from "@unform/web";
 import { VTextField } from "../../shared/forms";
+import { LinearProgress } from "@mui/material";
 
 
 
@@ -91,6 +92,9 @@ export const DetailPerson = () => {
     />
 
   </Form>
+  {isLoading && (
+    <LinearProgress  variant="indeterminate"/>
+  )}
 
   </LayoutBasePage>
  )
