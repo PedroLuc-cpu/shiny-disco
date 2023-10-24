@@ -14,6 +14,7 @@ export const DetailPerson = () => {
 
  const { id } = useParams<'id'>();
  const navigate = useNavigate();
+ // eslint-disable-next-line @typescript-eslint/no-unused-vars
  const [isLoading, setIsLoading] = useState(false)
  const [nome, setNome] = useState('')
 
@@ -78,9 +79,17 @@ export const DetailPerson = () => {
 
     <VTextField
     name="nomeCompleto"
-    >
 
-    </VTextField>
+    />
+    <VTextField
+    name="email"
+
+    />
+    <VTextField
+    name="cidadeId"
+
+    />
+
   </Form>
 
   </LayoutBasePage>
