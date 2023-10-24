@@ -94,7 +94,7 @@ export const  DetailsTool = ({
         onClick={onClickSaveAndBackButton}
         >
     <Typography variant="button"  whiteSpace={"nowrap"} textOverflow={"ellipsis"} overflow={"hidden"}>
-        Salvar e volta  r
+        Salvar e voltar
     </Typography>    
     </Button>
     )}

@@ -3,7 +3,7 @@ import {useDrawerContext } from "../shared/contexts";
 import { useEffect } from "react";
 
 
-import { Dashboard, ListingPerson } from "../pages";
+import { Dashboard, ListingPerson, DetailPerson } from "../pages";
 
 
 //icons
@@ -32,7 +32,7 @@ export function AppRoute(){
             <Routes>
                 <Route path="/app" element={<Dashboard />}/>
                 <Route path="/pessoas" element={<ListingPerson/>}/>
-                <Route path="/pessoas/detalhe/:id" element={<p>Detalhes</p>}/>
+                <Route path="/pessoas/detalhe/:id" element={<DetailPerson/>}/>
                 <Route path="*" element={<Navigate to={"/app"}/>}/>
             </Routes>
     )

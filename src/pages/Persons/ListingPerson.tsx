@@ -82,6 +82,7 @@ export const ListingPerson = () => {
             textButtonNew="Nova"
             showInputSearch
             searchText={busca}
+            clickNew={() => navigate(`/pessoas/detalhe/nova`)}
             whenChangingSearchText={texto => setSearchParams({busca: texto, pagina: '1'}, {replace:true})}
         />}
         >
