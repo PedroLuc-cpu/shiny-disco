@@ -3,7 +3,8 @@ import { LayoutBasePage } from "../../shared/layouts";
 import { DetailsTool } from "../../shared/components/details-tool/detailsTool";
 import { useEffect, useState } from "react";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasServices";
-import { LinearProgress } from "@mui/material";
+import { Form } from "@unform/web";
+import { VTextField } from "../../shared/forms";
 
 
 
@@ -22,14 +23,14 @@ export const DetailPerson = () => {
     PessoasService.getById(Number(id))
     .then((result) => {
       setIsLoading(false);
-      if(result instanceof Error){
-        alert(result.message);
-        navigate('/pessoas')
-      }else{
-        setNome(result.nomeCompleto)
-        console.log(result)
-        navigate(`/pessoas/detalhe/${result.id}`)
-      }
+        if(result instanceof Error){
+          alert(result.message);
+          navigate('/pessoas')
+        }else{
+          setNome(result.nomeCompleto)
+          console.log(result)
+          navigate(`/pessoas/detalhe/${result.id}`)
+        }
     })
   }
  }, [id, navigate])
@@ -73,10 +74,15 @@ export const DetailPerson = () => {
   />
   }
   >
-  {isLoading && (
-    <LinearProgress variant="indeterminate"/>
-  )}
-   
+  <Form onSubmit={() => console.log()}>
+
+    <VTextField
+    name="nomeCompleto"
+    >
+
+    </VTextField>
+  </Form>
+
   </LayoutBasePage>
  )
 }
