@@ -43,7 +43,7 @@ const getAll = async (page = 1, filter = '' ): Promise<TPessoaComTotalCount | Er
 
 const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
     try {
-        const { data, } = await Api.get(`/pessoas/${id}`);
+        const { data } = await Api.get(`/pessoas/${id}`);
         
         if(data) return data
             return new Error("Erro ao listar o registro.");
@@ -56,7 +56,7 @@ const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
 
 const create  = async (dados: Omit<IDetalhePessoa, 'id'>): Promise<number | Error> => {
     try {
-        const {data} = await Api.post<IDetalhePessoa>("/pesssoas", dados);
+        const {data} = await Api.post<IDetalhePessoa>("/pessoas", dados);
         if(data) return data.id;
 
         return new Error("Erro de realizar cadastro.");
