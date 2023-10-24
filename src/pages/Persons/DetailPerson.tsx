@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasServices";
 import { Form } from "@unform/web";
 import { VTextField } from "../../shared/forms";
-import { LinearProgress } from "@mui/material";
+import { Box, Grid, LinearProgress, Paper } from "@mui/material";
 import { FormHandles } from "@unform/core";
 
 interface IFormData {
@@ -109,21 +109,63 @@ export const DetailPerson = () => {
   >
   <Form ref={formRef}  onSubmit={handleSave}>
 
-    <VTextField
-    name="nomeCompleto"
-    placeholder="Nome"
+    <Box margin={1} display={"flex"} flexDirection={"column"} component={Paper} variant="outlined">
 
-    />
-    <VTextField
-    name="email"
-    placeholder="Email"
+      <Grid container direction={"column"} padding={2} spacing={2}>
+          <Grid container item direction={"row"} spacing={2}>
+              <Grid item xs={4}>
+                  <VTextField 
+                    name="nomeCompleto" 
+                    placeholder="Nome"
+                    fullWidth
+                    />
+              </Grid>              
+              
+              <Grid item xs={5}>
+                  <VTextField 
+                    name="nomeCompleto" 
+                    placeholder="Nome"
+                    fullWidth
+                    />
+              </Grid>              
+              
+              <Grid item xs={3}>
+                  <VTextField 
+                    name="nomeCompleto" 
+                    placeholder="Nome"
+                    fullWidth
+                    />
+              </Grid>
+          </Grid>
 
-    />
-    <VTextField
-    name="cidadeId"
-    placeholder="Cidade id"
+          <Grid container item direction={"row"} spacing={2}>
+              <Grid item xs={12}>
+                  <VTextField 
+                    name="email" 
+                    placeholder="Email"
+                    fullWidth
+                    />
+              </Grid>
+          </Grid>
 
-    />
+          <Grid container item direction={"row"} spacing={2}>
+              <Grid item xs={6}>
+                  <VTextField 
+                    name="cidadeId" 
+                    placeholder="Cidade id"
+                    fullWidth
+                    />
+              </Grid>
+              <Grid item xs={6}>
+                  <VTextField 
+                    name="cidadeId" 
+                    placeholder="Cidade id"
+                    fullWidth
+                    />
+              </Grid>
+          </Grid>
+      </Grid>
+    </Box>
 
   </Form>
   {isLoading && (
