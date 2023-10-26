@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { DetailsTool } from "../../shared/components/details-tool/detailsTool";
 import { LayoutBasePage } from "../../shared/layouts";
 
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
-import { Box, Grid } from "@mui/material";
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { VTextField } from "../../shared/forms";
 
 interface TMock {
@@ -16,6 +16,13 @@ interface TMock {
 
 export const Products = () => {
   const refForm = useRef<FormHandles>(null);
+  
+  const [tipoItem, setTipoItem] = useState('');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setTipoItem(event.target.value as string);
+    console.log(event.target.value)
+  }
 
   const handleSave = (data: TMock) => {
     switch (JSON.stringify(data)) {
@@ -40,6 +47,7 @@ export const Products = () => {
             <Grid container item direction={"row"} spacing={2}>
               <Grid item xs={1}>
                 <VTextField
+                  inputProps={{ inputMode: "numeric" }}
                   type="number"
                   name="cod_produto"
                   placeholder="Codigo"
@@ -69,6 +77,21 @@ export const Products = () => {
                   placeholder="Observação"
                   fullWidth
                 />
+              </Grid>
+
+              <Grid item xs={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Tipo de item</InputLabel>
+                  <Select
+                  labelId="Control-Tipo-Item"
+                  value={tipoItem}
+                  onChange={handleChange}
+                  >
+                    <MenuItem value={10}>Mercadoria para venda</MenuItem>
+                    <MenuItem value={11}>Uso e consumo</MenuItem>
+                    <MenuItem value={12}>Produto para processo</MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
             </Grid>
           </Grid>
