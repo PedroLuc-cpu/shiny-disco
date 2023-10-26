@@ -1,45 +1,37 @@
-import { TextField, TextFieldProps } from "@mui/material"
-import { useField } from "@unform/core"
+import { TextField, TextFieldProps } from "@mui/material";
+import { useField } from "@unform/core";
 import { useEffect, useState } from "react";
 
-
 type TVTextFieldProps = TextFieldProps & {
-    name: string;
-    // label: string;
-    // value: string;
-    // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
+  name: string;
+  // label: string;
+  // value: string;
+  // onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
-export const VTextField = ({name, ...rest}: TVTextFieldProps) => {
+export const VTextField = ({ name, ...rest }: TVTextFieldProps) => {
+  const { fieldName, registerField, defaultValue, error, clearError } =
+    useField(name);
 
-    const {fieldName, registerField, defaultValue, error, clearError} = useField(name)
-    
-    const [value, setValue] = useState(defaultValue || '');
+  const [value, setValue] = useState(defaultValue || "");
 
+  useEffect(() => {
+    registerField({
+      name: fieldName,
+      getValue: () => value,
+      setValue: (_, newValue) => setValue(newValue),
+    });
+  }, [fieldName, registerField, value]);
 
-    useEffect(() => {
-        registerField({
-            name: fieldName,
-            getValue: () => value,
-            setValue: (_, newValue) => setValue(newValue),
-
-        })
-    }, [fieldName, registerField, value])
-
-    return (
-        <TextField
-        {...rest}
-
-        error={!!error}
-        helperText={error}
-        defaultValue={defaultValue}
-        
-        onKeyDown={() => error ? clearError() : undefined}
-
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        />
-
-       
-    )
-}
+  return (
+    <TextField
+      {...rest}
+      error={!!error}
+      helperText={error}
+      defaultValue={defaultValue}
+      onKeyDown={() => (error ? clearError() : undefined)}
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+};

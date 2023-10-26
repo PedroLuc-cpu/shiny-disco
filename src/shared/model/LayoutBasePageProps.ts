@@ -1,9 +1,6 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
-
-
-
-export interface LayoutBasePageProps{
- title?: string
- toolbar? : ReactNode
+export interface LayoutBasePageProps {
+  title?: string;
+  toolbar?: ReactNode;
 }
