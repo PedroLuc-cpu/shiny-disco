@@ -2,9 +2,9 @@
   "pessoas": [
     {
       "id": 1,
-      "nomeCompleto": "Lucas",
+      "nomeCompleto": "Lucas Santos dos Santos",
       "email": " SantosdosSantos@gmail.com",
-      "cidadeId": "jatai"
+      "cidadeId": "jataigo"
     },
     {
       "id": 2,
@@ -89,6 +89,12 @@
       "nomeCompleto": "Clientecadastrado1",
       "email": "cadastrado@gmail.com",
       "cidadeId": "jatai"
+    },
+    {
+      "nomeCompleto": "Pedro Lucas Santos",
+      "cidadeId": "Açailândia",
+      "email": "Pedrolucas_gta2015@hotmail.com",
+      "id": 17
     }
   ]
 }

@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { PessoasService } from "../../shared/services/api/pessoas/PessoasServices";
 import { Form } from "@unform/web";
 import { VTextField } from "../../shared/forms";
-import { Box, Grid, LinearProgress, Paper } from "@mui/material";
+import { Box, Grid, LinearProgress, Paper, Typography } from "@mui/material";
 import { FormHandles } from "@unform/core";
 
 interface IFormData {
@@ -110,32 +110,44 @@ export const DetailPerson = () => {
           variant="outlined"
         >
           <Grid container direction={"column"} padding={2} spacing={2}>
+            {isLoading && (
+            <Grid item>
+              <LinearProgress variant="indeterminate"/>
+            </Grid>
+            )}
+
+            <Grid item>
+              <Typography variant="h6">Geral</Typography>
+            </Grid>
             <Grid container item direction={"row"} spacing={2}>
-              <Grid item xs={4}>
-                <VTextField name="nomeCompleto" placeholder="Nome" fullWidth />
-              </Grid>
-
-              <Grid item xs={5}>
-                <VTextField name="nomeCompleto" placeholder="Nome" fullWidth />
-              </Grid>
-
-              <Grid item xs={3}>
-                <VTextField name="nomeCompleto" placeholder="Nome" fullWidth />
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField 
+                label="Nome Completo"
+                name="nomeCompleto" 
+                placeholder="Nome" 
+                disabled={isLoading}                
+                />
               </Grid>
             </Grid>
 
             <Grid container item direction={"row"} spacing={2}>
-              <Grid item xs={12}>
-                <VTextField name="email" placeholder="Email" fullWidth />
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField 
+                label="Email"
+                name="email" 
+                placeholder="Email" 
+                disabled={isLoading}
+                
+                />
               </Grid>
-            </Grid>
+              <Grid item xs={12} sm={12} md={6} lg={4} xl={2}>
+                <VTextField
+                label="Cidade Id"
+                name="cidadeId" 
+                placeholder="Cidade id" 
+                disabled={isLoading}
 
-            <Grid container item direction={"row"} spacing={2}>
-              <Grid item xs={6}>
-                <VTextField name="cidadeId" placeholder="Cidade id" fullWidth />
-              </Grid>
-              <Grid item xs={6}>
-                <VTextField name="cidadeId" placeholder="Cidade id" fullWidth />
+                />
               </Grid>
             </Grid>
           </Grid>
