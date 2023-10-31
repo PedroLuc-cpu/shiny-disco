@@ -4,7 +4,7 @@ import { LayoutBasePage } from "../../shared/layouts";
 
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
-import { Box, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import { Box, Button, Grid, MenuItem, SelectChangeEvent, TextField } from "@mui/material";
 import { VTextField } from "../../shared/forms";
 
 interface TMock {
@@ -13,6 +13,24 @@ interface TMock {
   field_produto: string;
   obs_produto: string;
 }
+const currencies = [
+  {
+    value: '1',
+    label: 'Bitcoin',
+  },
+  {
+    value: '2',
+    label: 'Ethereum',
+  },
+  {
+    value: '3',
+    label: 'Binance coin',
+  },
+  {
+    value: '4',
+    label: 'Cardano',
+  },
+];
 
 export const Products = () => {
   const refForm = useRef<FormHandles>(null);
@@ -80,18 +98,24 @@ export const Products = () => {
               </Grid>
 
               <Grid item xs={4}>
-                <FormControl fullWidth>
-                  <InputLabel>Tipo de item</InputLabel>
-                  <Select
-                  labelId="Control-Tipo-Item"
-                  value={tipoItem}
-                  onChange={handleChange}
-                  >
-                    <MenuItem value={10}>Mercadoria para venda</MenuItem>
-                    <MenuItem value={11}>Uso e consumo</MenuItem>
-                    <MenuItem value={12}>Produto para processo</MenuItem>
-                  </Select>
-                </FormControl>
+                <TextField
+                fullWidth
+                label="Tipo de item"
+                select
+                defaultValue={"Bitcoin"}
+                onChange={(e) => setTipoItem(e.target.value)}
+                >
+                  {
+                    currencies.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                      </MenuItem>
+                    ) )
+                  }
+                </TextField>
+              </Grid>
+              <Grid>
+                <Button variant="outlined" onClick={() => console.log(tipo)}>Enviar</Button>
               </Grid>
             </Grid>
           </Grid>
