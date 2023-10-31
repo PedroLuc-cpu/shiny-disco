@@ -115,7 +115,7 @@ export const Products = () => {
                 </TextField>
               </Grid>
               <Grid>
-                <Button variant="outlined" onClick={() => console.log(tipo)}>Enviar</Button>
+                <Button variant="outlined" onClick={() => console.log(tipoItem)}>Enviar</Button>
               </Grid>
             </Grid>
           </Grid>
